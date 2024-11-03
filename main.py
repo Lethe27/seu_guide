@@ -66,6 +66,10 @@
 import streamlit as st
 from PIL import Image
 import io
+from pathlib import Path
+video_file = Path(__file__).resolve().parent / "resource/demo1.mp4"
+image_file = Path(__file__).resolve().parent / "resource/指南图片.png"
+pdf_file_path= Path(__file__).resolve().parent / "resource/电子资源指南.pdf"
 
 # 创建一个带有颜色文本的函数
 def colored_text(text, color):
@@ -111,7 +115,7 @@ def main():
     st.markdown(video_info, unsafe_allow_html=True)
     st.text("")  # 添加一个空行作为分隔
     
-    video_file = open('F:/project/seu_guide/resource/demo1.mp4', 'rb')
+    video_file = open( video_file , 'rb')
     video_bytes = video_file.read()
     st.video(video_bytes)
     st.text("")  # 添加一个空行作为分隔
@@ -130,7 +134,7 @@ def main():
     st.text("")  # 添加一个空行作为分隔
     
     # 打开图像文件
-    image = Image.open('F:/project/seu_guide/resource/指南图片.png')
+    image = Image.open(image_file)
     st.image(image, caption='SEU Database Resource Guide', use_column_width=True)
     st.text("")  # 添加一个空行作为分隔
 
@@ -138,8 +142,8 @@ def main():
     col1.markdown(colored_text('点击按钮下载我们的数据库使用指南PDF文件👉', '#FF6347') +
                   colored_text('Click the button to download our database guide PDF file👉', '#4682B4'), unsafe_allow_html=True)
     with col2:
-        local_pdf_file_path = 'F:/project/seu_guide/resource/电子资源指南.pdf'
-        with open(local_pdf_file_path, 'rb') as pdf_file:
+
+        with open(pdf_file_path, 'rb') as pdf_file:
             pdf_bytes = pdf_file.read()
         pdf_bytes_io = io.BytesIO(pdf_bytes)
         
