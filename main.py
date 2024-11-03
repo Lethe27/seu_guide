@@ -111,7 +111,7 @@ def main():
     st.markdown(video_info, unsafe_allow_html=True)
     st.text("")  # 添加一个空行作为分隔
     
-    video_file = open(r'resource\demo1.mp4', 'rb')
+    video_file = open('F:/project/seu_guide/resource/demo1.mp4', 'rb')
     video_bytes = video_file.read()
     st.video(video_bytes)
     st.text("")  # 添加一个空行作为分隔
@@ -130,7 +130,7 @@ def main():
     st.text("")  # 添加一个空行作为分隔
     
     # 打开图像文件
-    image = Image.open('resource\指南图片.png')
+    image = Image.open('F:/project/seu_guide/resource/指南图片.png')
     st.image(image, caption='SEU Database Resource Guide', use_column_width=True)
     st.text("")  # 添加一个空行作为分隔
 
@@ -138,7 +138,7 @@ def main():
     col1.markdown(colored_text('点击按钮下载我们的数据库使用指南PDF文件👉', '#FF6347') +
                   colored_text('Click the button to download our database guide PDF file👉', '#4682B4'), unsafe_allow_html=True)
     with col2:
-        local_pdf_file_path = r'resource\电子资源指南.pdf'
+        local_pdf_file_path = 'F:/project/seu_guide/resource/电子资源指南.pdf'
         with open(local_pdf_file_path, 'rb') as pdf_file:
             pdf_bytes = pdf_file.read()
         pdf_bytes_io = io.BytesIO(pdf_bytes)
