@@ -67,8 +67,9 @@ import streamlit as st
 from PIL import Image
 import io
 from pathlib import Path
-video_file = Path(__file__).resolve().parent / "resource/demo1.mp4"
-image_file = Path(__file__).resolve().parent / "resource/指南图片.png"
+
+video_file_path = Path(__file__).resolve().parent / "resource/demo1.mp4"
+image_file_path = Path(__file__).resolve().parent / "resource/指南图片.png"
 pdf_file_path= Path(__file__).resolve().parent / "resource/电子资源指南.pdf"
 
 # 创建一个带有颜色文本的函数
@@ -115,7 +116,7 @@ def main():
     st.markdown(video_info, unsafe_allow_html=True)
     st.text("")  # 添加一个空行作为分隔
     
-    video_file = open( video_file , 'rb')
+    video_file = open( video_file_path , 'rb')
     video_bytes = video_file.read()
     st.video(video_bytes)
     st.text("")  # 添加一个空行作为分隔
@@ -134,7 +135,7 @@ def main():
     st.text("")  # 添加一个空行作为分隔
     
     # 打开图像文件
-    image = Image.open(image_file)
+    image = Image.open(image_file_path)
     st.image(image, caption='SEU Database Resource Guide', use_column_width=True)
     st.text("")  # 添加一个空行作为分隔
 
